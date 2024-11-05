@@ -27,31 +27,30 @@ def main(page: ft.Page):
     btnIntro=ft.FilledButton(text="Escucha el intro",disabled=False,on_click=playIntro)
     btnsig=ft.FilledButton(text=">>")
 
-def route_change(route):
-    page.views.clear()
-    if page.route == '/':
-        page.views.append(
-            View(
-                "/",controls=[
-                    AppBar(
-                            title=ft.Text("Musica"),
-                            bgcolor="black"
-                        ),
-                    ft.Container(
-                        ft.Column(
-                            controls=[
-                                ElevatedButton(
-                                    btnsig ,
-                                    on_click=lambda _: [StopAll(), page.go('/')]
-                                    )
-                            ]
-                        )
-                    )
-                ]
-            )
-        )
-                                    
-ft.app(target=main, assets_dir="assets")
+    page.add(
+        ft.Row(
+            alignment="CENTER",
+            controls=[btnIntro,Img1]
+        ),
+        ft.Column(
+            alignment="star",
+            controls=[btnsig]
+        ),
+    )
+    def route_change(route):
+        page.views.clear()
         
+        if page.route == '/':
+            page.views.append(
+                View(
+                    "/",
+                    controls=[
+                        AppBar(
+                            title=ft.Text("La historia de la musica"),
+                            bgcolor="gray"
+                        )
+                    ]
+                )
+            )
 
 ft.app(target=main)
