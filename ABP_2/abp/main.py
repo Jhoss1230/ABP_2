@@ -17,24 +17,7 @@ def main(page: ft.Page):
 #funcion para reproducir
     def playIntro(e):
         StopAll()
-        Intro.play()
-
-
-#audios
-    Intro=ft.Audio(src="intro de la musica.mp3",volume=1,balance=0)
-    page.overlay.append(Intro)
-    Img1=ft.Image(src="musica.jpg")
-    
-    
-#Creamos la interfaz
-    btnIntro=ft.FilledButton(text="Escucha el intro",disabled=False,on_click=playIntro)
-
-    page.add(
-        ft.Row(
-            alignment="CENTER",
-            controls=[btnIntro,Img1]
-        )
-    )
+        Intro.play()  
     
     def route_change(route):
         page.views.clear()
@@ -53,7 +36,7 @@ def main(page: ft.Page):
                                 controls=[
                                     ElevatedButton(
                                         '>>>',
-                                        on_click=lambda _: [page.go('/principios')]
+                                        on_click=lambda _: [StopAll(),page.go('/principios')]
                                     ),
                                     ft.Image(
                                         src="portada.jpg",
@@ -61,7 +44,12 @@ def main(page: ft.Page):
                                         height=image_height_Portada,
                                         fit="cover"
                                     ),
-                                ]
+                                    ElevatedButton(
+                                        "Intro",
+                                        on_click=playIntro
+                                    ),
+                                    
+                                ],
                             )
                         )
                     ]
