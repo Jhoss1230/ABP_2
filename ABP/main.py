@@ -93,7 +93,7 @@ def main(page: ft.Page):
                                 controls=[
                                     ElevatedButton(
                                         '>>>',
-#sirve para ir a la siguiente página                                     on_click=lambda _: page.go('/renacimiento').                                                                             ft.Row(                                      aligment="center",                                      controls=[btn1
+                                    on_click=lambda _: page.go('/renacimiento').                                                                             ft.Row(                                      aligment="center",                                      controls=[btn1
          ]
                                     ),
 
