@@ -22,7 +22,7 @@ def main(page: ft.Page):
 
     giovanni=ft.Audio(src="giovanni.mp3",volume=1, balance=0)
     page.overlay.append(giovanni)
-#funcion para detener audios (sirve para cunado o se junten dos audios al mismo tiempo)
+#funcion para detener audios (sirve para cuando se junten dos audios al mismo tiempo)
     def StopAll():
         Intro.pause()
         giovanni.pause()
@@ -93,7 +93,7 @@ def main(page: ft.Page):
                                 controls=[
                                     ElevatedButton(
                                         '>>>',
-                                        on_click=lambda _: page.go('/renacimiento').                                                                             ft.Row(                                      aligment="center",                                      controls=[btn1
+#sirve para ir a la siguiente página                                     on_click=lambda _: page.go('/renacimiento').                                                                             ft.Row(                                      aligment="center",                                      controls=[btn1
          ]
                                     ),
 
@@ -101,7 +101,7 @@ def main(page: ft.Page):
                                         '<<<',
                                         on_click=lambda _: page.go('/')
                                     )
-                                ],
+                                ],#sirve para volver a la página anterior
                                 alignment=ft.MainAxisAlignment.START
                             ),
                             bgcolor=page.bgcolor,
