@@ -36,7 +36,7 @@ def main(page: ft.Page):
         giovanni.play()
 
 #botones
-    btn1=ElevatedButton(content=ft.Image(src="giovanni.jpg", width=img_width, height=img_height, border_radius=border_radius, semantics_label="giovanni palestrina"), on_click=play_giovanni)
+    btn1 = ElevatedButton(content=ft.Image(src="giovanni.jpg", width=img_width, height=img_height, border_radius=border_radius, semantics_label="giovanni palestrina"), on_click=play_giovanni)
     
     def route_change(route):
         page.views.clear()
@@ -93,8 +93,10 @@ def main(page: ft.Page):
                                 controls=[
                                     ElevatedButton(
                                         '>>>',
-                                        on_click=lambda _: page.go('/renacimiento')
+                                        on_click=lambda _: page.go('/renacimiento').                                                                             ft.Row(                                      aligment="center",                                      controls=[btn1
+         ]
                                     ),
+
                                     ElevatedButton(
                                         '<<<',
                                         on_click=lambda _: page.go('/')
