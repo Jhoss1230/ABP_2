@@ -20,9 +20,9 @@ def main(page: ft.Page):
     Intro=ft.Audio(src="intro de la musica.mp3",volume=1, balance=0)
     page.overlay.append(Intro)
 
-    giovanni=ft.Audio(src="giovanni.mp3",volume=1, balance=0)
+    giovanni = ft.Audio(src="Palestrina.mp3", volume=1, balance=0)
     page.overlay.append(giovanni)
-#funcion para detener audios (sirve para cuando se junten dos audios al mismo tiempo)
+#funcion para detener audios (sirve para cunado o se junten dos audios al mismo tiempo)
     def StopAll():
         Intro.pause()
         giovanni.pause()
@@ -31,12 +31,12 @@ def main(page: ft.Page):
         StopAll()
         Intro.play()
 
-    def playgiovanni(e):
+    def play_giovanni(e):
         StopAll()
         giovanni.play()
 
 #botones
-    btn1 = ElevatedButton(content=ft.Image(src="giovanni.jpg", width=img_width, height=img_height, border_radius=border_radius, semantics_label="giovanni palestrina"), on_click=play_giovanni)
+    btn1 = ElevatedButton(content=ft.Image(src="giovanni.jpg", width=img_width, height=img_height, border_radius=border_radius, semantics_label="giovanni"), on_click=play_giovanni)
     
     def route_change(route):
         page.views.clear()
@@ -93,15 +93,13 @@ def main(page: ft.Page):
                                 controls=[
                                     ElevatedButton(
                                         '>>>',
-                                    on_click=lambda _: page.go('/renacimiento').                                                                             ft.Row(                                      aligment="center",                                      controls=[btn1
-         ]
+                                        on_click=lambda _: page.go('/renacimiento')
                                     ),
-
                                     ElevatedButton(
                                         '<<<',
                                         on_click=lambda _: page.go('/')
                                     )
-                                ],#sirve para volver a la página anterior
+                                ],
                                 alignment=ft.MainAxisAlignment.START
                             ),
                             bgcolor=page.bgcolor,
