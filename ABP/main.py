@@ -11,10 +11,9 @@ def main(page: ft.Page):
     image_height_Portada = 400
     
     border_radius = 25 
-    
-    img_height = 75
-    img_width = 75
 
+    img_height = 200
+    img_width = 200
 
 #audios para la informacion
     Intro=ft.Audio(src="intro de la musica.mp3",volume=1, balance=0)
@@ -22,6 +21,7 @@ def main(page: ft.Page):
 
     giovanni = ft.Audio(src="Palestrina.mp3", volume=1, balance=0)
     page.overlay.append(giovanni)
+    
 #funcion para detener audios (sirve para cunado o se junten dos audios al mismo tiempo)
     def StopAll():
         Intro.pause()
@@ -36,8 +36,59 @@ def main(page: ft.Page):
         giovanni.play()
 
 #botones
+#renacimiento
     btn1 = ElevatedButton(content=ft.Image(src="giovanni.jpg", width=img_width, height=img_height, border_radius=border_radius, semantics_label="giovanni"), on_click=play_giovanni)
-    
+    btn2 = ElevatedButton(content=ft.Image(src="Gregor Aichinger.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn3 =ElevatedButton(content=ft.Image(src="Elias Nicolaus Ammerbach.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn4=ElevatedButton(content=ft.Image(src="Thoinot Arbeau.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    #barrocal
+    btn5=ElevatedButton(content=ft.Image(src="Johann Sebastian Bach.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn6=ElevatedButton(content=ft.Image(src="Georg Friedrich Händel.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn7=ElevatedButton(content=ft.Image(src="Pietro Locatelli.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn8=ElevatedButton(content=ft.Image(src="Giovanni Battista Pergolesi.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    #clacismo
+    btn9=ElevatedButton(content=ft.Image(src="Christoph Willibald Gluck.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn10=ElevatedButton(content=ft.Image(src="Ludwig van Beethoven.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn11=ElevatedButton(content=ft.Image(src="Wolfgang Amadeus Mozart.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn12=ElevatedButton(content=ft.Image(src="Joseph Haydn.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    #romanticismo
+    btn13=ElevatedButton(content=ft.Image(src="Frédéric Chopin.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn14=ElevatedButton(content=ft.Image(src="Franz Schubert.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn15=ElevatedButton(content=ft.Image(src="Fanny Mendelssohn.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn16=ElevatedButton(content=ft.Image(src="Johannes Brahms.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    #moderno
+    btn17=ElevatedButton(content=ft.Image(src="Ígor Stravinski.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn18=ElevatedButton(content=ft.Image(src="Paul Hindemith.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn19=ElevatedButton(content=ft.Image(src="Sergéi Prokófiev.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+    btn20=ElevatedButton(content=ft.Image(src="Dmitri Shostakóvich.jpg", width=img_width, height=img_height, border_radius=border_radius,),)
+
+#botones con informacion
+#renacimiento
+    a=ElevatedButton("Giovanni Gabrieli")
+    b=ElevatedButton("Gregor Aichinger")
+    c=ElevatedButton("Elias Nicolaus Ammerbach")
+    d=ElevatedButton("Thoinot Arbeau")
+    #barrocal
+    e=ElevatedButton("Johann Sebastian Bach")
+    f=ElevatedButton("Georg Friedrich Händel")
+    g=ElevatedButton("Pietro Locatelli")
+    h=ElevatedButton("Giovanni Battista Pergolesi")
+    #clacismo
+    i=ElevatedButton("Christoph Willibald Gluck")
+    j=ElevatedButton("Ludwig van Beethoven")
+    k=ElevatedButton("Wolfgang Amadeus Mozart")
+    l=ElevatedButton("Joseph Haydn")
+    #romanticismo
+    m=ElevatedButton("Frédéric Chopin")
+    n=ElevatedButton("Franz Schubert")
+    ñ=ElevatedButton("Sergéi Prokófiev")
+    o=ElevatedButton("Johannes Brahms")
+    #moderno
+    p=ElevatedButton("Ígor Stravinski")
+    q=ElevatedButton("Paul Hindemith")
+    r=ElevatedButton("Fanny Mendelssohn")
+    s=ElevatedButton("Dmitri Shostakóvich")
+
     def route_change(route):
         page.views.clear()
         
@@ -65,7 +116,7 @@ def main(page: ft.Page):
                                     ),
                                     ElevatedButton(
                                         '>>>',
-                                        on_click=lambda _: [StopAll(), page.go('/principios')]
+                                        on_click=lambda _: [StopAll(), page.go('/renacimiento')]
                                     ),
                                     
                                 ],
@@ -79,36 +130,6 @@ def main(page: ft.Page):
                 )
             )
         #vista de informacion
-        elif page.route == '/principios':
-            page.views.append(
-                View(
-                    "/principios",
-                    controls=[
-                        AppBar(
-                            title=ft.Text("Principios de la Musica"),
-                            bgcolor="purple"
-                        ),
-                        ft.Container(
-                            ft.Column(
-                                controls=[
-                                    ElevatedButton(
-                                        '>>>',
-                                        on_click=lambda _: page.go('/renacimiento')
-                                    ),
-                                    ElevatedButton(
-                                        '<<<',
-                                        on_click=lambda _: page.go('/')
-                                    )
-                                ],
-                                alignment=ft.MainAxisAlignment.START
-                            ),
-                            bgcolor=page.bgcolor,
-                            expand=True
-                        )
-                    ],
-                    bgcolor=page.bgcolor
-                )
-            )
         elif page.route == '/renacimiento':
             page.views.append(
                 View(
@@ -127,12 +148,30 @@ def main(page: ft.Page):
                                     ),
                                     ElevatedButton(
                                         '<<<',
-                                        on_click=lambda _: page.go('/principios')
+                                        on_click=lambda _: page.go('/')
                                     ),
                                     ft.Row(
                                         alignment="center",
                                         controls=[
-                                            btn1
+                                            btn1,btn2,btn3
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            a,b,c
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            btn4
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            d
                                         ]
                                     ),
                                 ],
@@ -151,7 +190,7 @@ def main(page: ft.Page):
                     "/barroco",
                     controls=[
                         AppBar(
-                            title=ft.Text(" Baroco (1600-1750)"),
+                            title=ft.Text(" barrocal (1600-1750)"),
                             bgcolor="purple"
                         ),
                         ft.Container(
@@ -164,7 +203,31 @@ def main(page: ft.Page):
                                     ElevatedButton(
                                         '<<<',
                                         on_click=lambda _: page.go('/renacimiento')
-                                    )
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            btn5,btn6,btn7
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            e,f,g
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            btn8
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            h
+                                        ]
+                                    ),
                                 ],
                                 alignment=ft.MainAxisAlignment.START
                             ),
@@ -189,29 +252,53 @@ def main(page: ft.Page):
                                 controls=[
                                     ElevatedButton(
                                         '>>>',
-                                        on_click=lambda _: page.go('/romantic')
-                                        ),
+                                        on_click=lambda _: page.go('/romanticismo')
+                                    ),
                                     ElevatedButton(
                                         '<<<',
                                         on_click=lambda _: page.go('/barroco')
-                                        )
-                                    ],
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            btn9,btn10,btn11
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            i,j,k
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            btn12
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            l
+                                        ]
+                                    ),
+                                ],
                                 alignment=ft.MainAxisAlignment.START
                             ),
                             bgcolor=page.bgcolor,
                             expand=True
-                        ),
+                        )
                     ],
                     bgcolor=page.bgcolor
                 )
             )
-        elif page.route == '/romantic':
+        elif page.route == '/romanticismo':
             page.views.append(
                 View(
-                    "/romantic",
+                    "/romanticismo",
                     controls=[
                         AppBar(
-                            title=ft.Text("El romanticismo(1820-1900)"),
+                            title=ft.Text("Música del romanticismo"),
                             bgcolor="purple"
                         ),
                         ft.Container(
@@ -220,17 +307,41 @@ def main(page: ft.Page):
                                     ElevatedButton(
                                         '>>>',
                                         on_click=lambda _: page.go('/moderno')
-                                        ),
+                                    ),
                                     ElevatedButton(
                                         '<<<',
                                         on_click=lambda _: page.go('/clasicismo')
-                                        )
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            btn13,btn14,btn15
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            m,n,ñ
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            btn16
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            o
+                                        ]
+                                    ),
                                 ],
                                 alignment=ft.MainAxisAlignment.START
                             ),
                             bgcolor=page.bgcolor,
                             expand=True
-                        ),
+                        )
                     ],
                     bgcolor=page.bgcolor
                 )
@@ -249,11 +360,95 @@ def main(page: ft.Page):
                                 controls=[
                                     ElevatedButton(
                                         '>>>',
-                                        on_click=lambda _: page.go('/presente')
+                                        on_click=lambda _: page.go('/contemporáneo')
                                         ),
                                     ElevatedButton(
                                         '<<<',
-                                        on_click=lambda _: page.go('/romantic')
+                                        on_click=lambda _: page.go('/clasicismo')
+                                        ),
+                                        ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            btn17,btn18,btn19
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            p,q,r
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            btn20
+                                        ]
+                                    ),
+                                    ft.Row(
+                                        alignment="center",
+                                        controls=[
+                                            s
+                                        ]
+                                    ),
+                                    ],
+                                alignment=ft.MainAxisAlignment.START
+                            ),
+                            bgcolor=page.bgcolor,
+                            expand=True
+                        ),
+                    ],
+                    bgcolor=page.bgcolor
+                )
+            )
+        elif page.route == '/contemporáneo':
+            page.views.append(
+                View(
+                    "/contemporáneo",
+                    controls=[
+                        AppBar(
+                            title=ft.Text("contemporáneo 1960"),
+                            bgcolor="purple"
+                        ),
+                        ft.Container(
+                            ft.Column(
+                                controls=[
+                                    ElevatedButton(
+                                        '>>>',
+                                        on_click=lambda _: page.go('/2000')
+                                        ),
+                                    ElevatedButton(
+                                        '<<<',
+                                        on_click=lambda _: page.go('/moderno')
+                                        ),
+                                ],
+                                alignment=ft.MainAxisAlignment.START
+                            ),
+                            bgcolor=page.bgcolor,
+                            expand=True
+                        ),
+                    ],
+                    bgcolor=page.bgcolor
+                )
+            )
+        elif page.route == '/2000':
+            page.views.append(
+                View(
+                    "/2000",
+                    controls=[
+                        AppBar(
+                            title=ft.Text("Música de los años 2000"),
+                            bgcolor="purple"
+                        ),
+                        ft.Container(
+                            ft.Column(
+                                controls=[
+                                    ElevatedButton(
+                                        '>>>',
+                                        on_click=lambda _: page.go('/2020')
+                                        ),
+                                    ElevatedButton(
+                                        '<<<',
+                                        on_click=lambda _: page.go('/contemporáneo')
                                         )
                                 ],
                                 alignment=ft.MainAxisAlignment.START
@@ -265,13 +460,43 @@ def main(page: ft.Page):
                     bgcolor=page.bgcolor
                 )
             )
-        elif page.route == '/presente': 
+        elif page.route == '/2020': 
             page.views.append(
                 View(
-                    "/presente",
+                    "/2020",
                     controls=[
                         AppBar(
-                            title=ft.Text("El periodo contemporaneo (1960-Presente)"),
+                            title=ft.Text("Música del 2020"),
+                            bgcolor="purple"
+                        ),
+                        ft.Container(
+                            ft.Column(
+                                controls=[
+                                    ElevatedButton(
+                                        '>>>',
+                                        on_click=lambda _: page.go('/2024')
+                                        ),
+                                    ElevatedButton(
+                                        '<<<',
+                                        on_click=lambda _: page.go('/2000')
+                                        )
+                                    ],
+                                    alignment=ft.MainAxisAlignment.START
+                                ),
+                                bgcolor=page.bgcolor,
+                                expand=True
+                            ),
+                        ],
+                        bgcolor=page.bgcolor
+                    )
+                )
+        elif page.route == '/2024': 
+            page.views.append(
+                View(
+                    "/2024",
+                    controls=[
+                        AppBar(
+                            title=ft.Text("Música del 2024"),
                             bgcolor="purple"
                         ),
                         ft.Container(
@@ -283,7 +508,7 @@ def main(page: ft.Page):
                                         ),
                                     ElevatedButton(
                                         '<<<',
-                                        on_click=lambda _: page.go('/moderno')
+                                        on_click=lambda _: page.go('/2020')
                                         )
                                     ],
                                     alignment=ft.MainAxisAlignment.START
